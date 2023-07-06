@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Cbnf,Sghty
-from .serializers import CbnfSerializer,SghtySerializer
+from home.models import Asdt,Cbnf,Sghty
+from .serializers import AsdtSerializer,CbnfSerializer,SghtySerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -42,3 +42,8 @@ class SghtyViewSet(viewsets.ModelViewSet):
     serializer_class = SghtySerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Sghty.objects.all()
+
+class AsdtViewSet(viewsets.ModelViewSet):
+    serializer_class = AsdtSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Asdt.objects.all()
