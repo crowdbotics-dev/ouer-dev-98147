@@ -6,6 +6,24 @@ const ouerdevAPI = axios.create({
 function api_docs_schema_retrieve(payload) {
   return ouerdevAPI.get(`/api-docs/schema/`, { params: { lang: payload.lang } })
 }
+function api_v1_asdt_list(payload) {
+  return ouerdevAPI.get(`/api/v1/asdt/`)
+}
+function api_v1_asdt_create(payload) {
+  return ouerdevAPI.post(`/api/v1/asdt/`, payload.data)
+}
+function api_v1_asdt_retrieve(payload) {
+  return ouerdevAPI.get(`/api/v1/asdt/${payload.id}/`)
+}
+function api_v1_asdt_update(payload) {
+  return ouerdevAPI.put(`/api/v1/asdt/${payload.id}/`, payload.data)
+}
+function api_v1_asdt_partial_update(payload) {
+  return ouerdevAPI.patch(`/api/v1/asdt/${payload.id}/`, payload.data)
+}
+function api_v1_asdt_destroy(payload) {
+  return ouerdevAPI.delete(`/api/v1/asdt/${payload.id}/`)
+}
 function api_v1_cbnf_list(payload) {
   return ouerdevAPI.get(`/api/v1/cbnf/`)
 }
@@ -83,6 +101,12 @@ function rest_auth_user_partial_update(payload) {
 }
 export const apiService = {
   api_docs_schema_retrieve,
+  api_v1_asdt_list,
+  api_v1_asdt_create,
+  api_v1_asdt_retrieve,
+  api_v1_asdt_update,
+  api_v1_asdt_partial_update,
+  api_v1_asdt_destroy,
   api_v1_cbnf_list,
   api_v1_cbnf_create,
   api_v1_cbnf_retrieve,
